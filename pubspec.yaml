@@ -84,6 +84,7 @@ flutter:
     - images/pizza.png
     - images/ramen.png
     - images/tteokbokki.png
+    - images/bus.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
