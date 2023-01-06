@@ -1,3 +1,4 @@
+import 'package:aka_project/screens/bus/screens/bus&shuttle_screen.dart';
 import 'package:aka_project/screens/community/communityScreens/communityListScreen.dart';
 import 'package:aka_project/screens/food/deliveryScreen/delivery_screen.dart';
 import 'package:aka_project/screens/food/schoolMenuScreen/foodlist_screen.dart';
@@ -76,9 +77,10 @@ class _MainhomepageState extends State<Mainhomepage> {
   }
 
   Color backColor = const Color.fromARGB(255, 106, 114, 225);
+  Color BusColor = const Color.fromARGB(255, 255, 125, 255);
   Color PortButtonColor = const Color.fromARGB(255, 255, 173, 84);
-  Color LunchButtonColor = Color.fromARGB(255, 85, 216, 140);
-  Color DeliveryButtonColor = Color.fromARGB(255, 102, 185, 241);
+  Color LunchButtonColor = const Color.fromARGB(255, 85, 216, 140);
+  Color DeliveryButtonColor = const Color.fromARGB(255, 102, 185, 241);
 
   Padding pd65 = const Padding(padding: EdgeInsets.only(top: 65));
   Padding pd30 = const Padding(padding: EdgeInsets.only(top: 30));
@@ -87,6 +89,36 @@ class _MainhomepageState extends State<Mainhomepage> {
   Widget CenterButton() {
     return Column(
       children: [
+        SizedBox(
+          width: 270,
+          height: 60,
+          child: ElevatedButton.icon(
+            //버스 버튼
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => BusOrShuttle()));
+            },
+            icon: Image.asset(
+              'images/bus.png',
+            ),
+            style: ElevatedButton.styleFrom(
+              primary: BusColor,
+              padding: EdgeInsets.fromLTRB(20.0, 0, 20.0, 0),
+              textStyle: TextStyle(fontSize: 18),
+            ),
+            label: Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    '교통수단',
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        pd65,
         SizedBox(
           width: 270,
           height: 60,
@@ -284,30 +316,29 @@ class _MainhomepageState extends State<Mainhomepage> {
         backgroundColor: backColor,
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          SingleChildScrollView(
-            child: Column(
-              children: [
-                pd30,
-                Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const SizedBox(width: 350),
-                      Image.asset('images/logo.png'), //안양대 로고 사진
-                      MyInfoButton(),
-                      const SizedBox(height: 20.0),
-                    ],
-                  ),
-                ),
-                pd65,
-                CenterButton(),
-                pd65
-              ],
-            ),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              pd30,
+              Image.asset('images/logo.png'), //안양대 로고 사진
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  MyInfoButton(),
+                  const Padding(padding: EdgeInsets.only(right: 30)),
+                ],
+              ),
+              pd65,
+              CenterButton(),
+              pd65,
+              CenterButton(),
+              pd65,
+              CenterButton(),
+              pd65,
+            ],
           ),
-        ],
+        ),
       ),
       bottomNavigationBar: ConstrainedBox(
         constraints: const BoxConstraints.tightFor(height: 60),
