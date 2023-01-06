@@ -1,3 +1,4 @@
+import 'package:aka_project/screens/bus/screens/shuttleList_screen.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
@@ -87,8 +88,8 @@ class _BusOrShuttleState extends State<BusOrShuttle> {
         height: 50,
         child: ElevatedButton.icon(
           onPressed: () {
-            // Navigator.of(context)
-            //     .push(MaterialPageRoute(builder: (context) => deliver_west()));
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => ShuttleList()));
           },
           icon: Image.asset(
             'images/bus.png',
