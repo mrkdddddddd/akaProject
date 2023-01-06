@@ -203,7 +203,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               );
                             },
                             child: const Text("회원 가입")),
-                      ])),
+                      ])), // 뭐지
                 ],
               ),
             ],
